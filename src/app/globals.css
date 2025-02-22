@@ -19,3 +19,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+::selection {
+  background-color: #faf35d; /* Tailwind's bg-yellow-300 color */
+  color: black; /* You can specify the text color as well */
+}

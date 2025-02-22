@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, GraduationCap, Milestone } from "lucide-react"; // Import icons
 import Image from "next/image";
 import Masonry from "react-masonry-css";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaClipboard, FaEnvelope, FaGraduationCap, FaPhone, FaPhoneAlt } from "react-icons/fa";
+import { educationData, experiences } from "../../utils/info";
+import Link from "next/link";
+import { Button, ButtonGroup, Chip, Tooltip } from "@mui/material";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,7 +28,6 @@ const Home = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const showAlert = () => alert("Recruit button clicked!");
   const workshop_img = [
     {
       img: "/assets/images/Events/velammal.jpg",
@@ -84,71 +86,12 @@ const Home = () => {
     480: 1, // 1 column on mobile
   };
 
-  const experiences = [
-    {
-      role: "Full Stack Developer",
-      company: "Tech Company",
-      duration: "Jan 2022 - Present",
-      description: "Worked on building scalable web applications with React, Next.js, and Node.js.",
-    },
-    {
-      role: "Frontend Developer",
-      company: "Startup Inc.",
-      duration: "Jul 2020 - Dec 2021",
-      description: "Developed interactive UI/UX using React and Tailwind CSS.",
-    },
-    {
-      role: "Full Stack Developer",
-      company: "Tech Company",
-      duration: "Jan 2022 - Present",
-      description: "Worked on building scalable web applications with React, Next.js, and Node.js.",
-    },
-    {
-      role: "Frontend Developer",
-      company: "Startup Inc.",
-      duration: "Jul 2020 - Dec 2021",
-      description: "Developed interactive UI/UX using React and Tailwind CSS.",
-    },
-    {
-      role: "Full Stack Developer",
-      company: "Tech Company",
-      duration: "Jan 2022 - Present",
-      description: "Worked on building scalable web applications with React, Next.js, and Node.js.",
-    },
-    {
-      role: "Frontend Developer",
-      company: "Startup Inc.",
-      duration: "Jul 2020 - Dec 2021",
-      description: "Developed interactive UI/UX using React and Tailwind CSS.",
-    },
-  ];
 
-
-  const educationData = [
-    {
-      year: "2019 - 2023",
-      degree: "B.E - Computer Science Engineering",
-      institution: "Anna University Regional Campus",
-      score: "GPA: 7.96/10",
-    },
-    {
-      year: "2018 - 2019",
-      degree: "Higher Secondary Education (HSC)",
-      institution: "Sri Vidya Mandir Matric Hr. Sec. School",
-      score: "Percentage: 79%",
-    },
-    {
-      year: "2016 - 2017",
-      degree: "Secondary Education (SSLC)",
-      institution: "St. Lucy’s Matric Hr. Sec. School",
-      score: "Percentage: 94%",
-    }
-  ];
   const [selectedCert, setSelectedCert] = useState(null);
   const certificates = [
     {
       title: "Certification 1",
-      image: "/assets/images/Honurs/ibm.jpg",
+      image: "/assets/images/Honurs/Ibm.jpg",
       description: "Description for Certification 1",
       detailsLink: "/cert1-details"
     },
@@ -171,10 +114,143 @@ const Home = () => {
       setSelectedCert(null);
     }
   };
+  const showAlert = () => {
+    // Toggle modal visibility on "Recruit" button click
+    setModalOpen(true);
+  };
+  const closeRecruitModal = () => {
+    // Close modal when clicking the close button
+    setModalOpen(false);
+  };
+  const [modalOpen, setModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  // Function to copy text to the clipboard
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true); // Show confirmation that text is copied
+      setTimeout(() => setCopied(false), 2000); // Hide confirmation after 2 seconds
+    });
+  };
+
+  const read_blog_sx = {
+    width: 'fit-content', // Fixed width
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '0 8px', // Padding for spacing
+    transition: 'background-color 0.3s ease', // Smooth hover effect
+    '&:hover': {
+      backgroundColor: 'black', // Light hover background color
+      cursor: 'pointer',
+      color: 'yellow', // Light hover text color
+      transform: 'scale(1.01)', // Slightly bigger on hover
+      scale: 1.01,
+      transition: 'all 0.3s ease', // Smooth hover effect
+    },
+  }
 
 
   return (
     <div className="min-h-screen">
+      {modalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[9999]">
+          <div className="bg-white p-8 rounded-lg w-11/12 max-w-lg relative z-[9999]">
+            {/* Close Button (Top Right) */}
+            <button
+              onClick={closeRecruitModal}
+              className="absolute top-4 right-4 text-gray-600 hover:text-red-600"
+            >
+              <X size={24} />
+            </button>
+
+            <h2 className="text-xl font-bold">Dear Recruiters</h2>
+            <div className="flex items-center mt-4 space-x-4">
+              {/* Circular Image */}
+              <img
+                src="/bill_gates.png"  // Replace with the actual image URL
+                alt="Bill Gates"
+                className="w-24 h-24 rounded-full"  // Circular image style
+              />
+
+              {/* Quote Text */}
+              <p className="flex-1">“I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it.”</p>
+            </div>
+            {/* Author Name */}
+            <p className="mt-4 text-right font-semibold">— Bill Gates</p>
+
+            <div className="mt-4 flex space-x-6 w-full">
+  {/* Phone Number */}
+  <p className="flex items-center text-blue-500 cursor-pointer hover:underline w-full max-w-[calc(50%-24px)] overflow-hidden text-ellipsis">
+    <span
+      onClick={() => copyToClipboard("+919976203099")}
+      className="mr-2 whitespace-nowrap overflow-hidden"
+    >
+      +91 9976203099
+    </span>
+    <FaClipboard
+      onClick={() => copyToClipboard("+919976203099")}
+      className="text-gray-700 cursor-pointer hover:text-blue-500"
+      title="Click to copy"
+    />
+  </p>
+
+  {/* Email */}
+  <p className="flex items-center text-blue-500 cursor-pointer hover:underline w-full max-w-[calc(50%-24px)] overflow-hidden text-ellipsis">
+    <span
+      onClick={() => copyToClipboard("nitheshwaran003@gmail.com")}
+      className="mr-2 whitespace-nowrap overflow-hidden"
+    >
+      nitheshwaran003@gmail.com
+    </span>
+    <FaClipboard
+      onClick={() => copyToClipboard("nitheshwaran003@gmail.com")}
+      className="text-gray-700 cursor-pointer hover:text-blue-500"
+      title="Click to copy"
+    />
+  </p>
+</div>
+
+{/* Feedback on Copy */}
+{copied && (
+  <p className="text-green-500 mt-2">Copied to clipboard!</p>
+)}
+
+
+            {/* Button Group - Full Width with Equal Spacing Between Buttons */}
+            <div className="mt-4 w-full">
+              <ButtonGroup
+                variant="outlined"
+                aria-label="Loading button group"
+                className="w-full justify-between"  // Spread buttons equally
+              >
+                <Button
+                  className="w-full rounded-l-full flex items-center justify-center gap-4"
+                  sx={{
+                    borderRadius: "50px 0 0 50px",  // Semi-circle on the left side
+                  }}
+                  onClick={() => window.location.href = 'tel:+919976203099'}
+                >
+                  <FaPhoneAlt className="text-gray-700 text-lg" /> {/* Call Icon */}
+                  <span>Call</span>
+                </Button>
+                <Button
+                  className="w-full rounded-r-full flex items-center justify-center gap-4"
+                  sx={{
+                    borderRadius: "0 50px 50px 0",  // Semi-circle on the right side
+                  }}
+                  onClick={() => window.location.href = 'mailto:nitheshwaran003@gmail.com'}
+                >
+                  <FaEnvelope className="text-gray-700 text-lg" /> {/* Mail Icon */}
+                  <span>Mail</span>
+                </Button>
+              </ButtonGroup>
+            </div>
+          </div>
+        </div>
+      )}
+
+
       <nav className="w-full bg-yellow-100">
         <div className="flex justify-between items-center">
           {/* Logo / Branding */}
@@ -226,10 +302,6 @@ const Home = () => {
             height={384}
             priority
           />
-          {/* rounded-full 
-          h-96 w-96  
- shadow-lg
-          */}
         </div>
         <div className="max-w-2xl text-center lg:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
@@ -239,8 +311,8 @@ const Home = () => {
         </div>
       </div>
       {/* Honors */}
-      <div className="h-auto p-10 bg-white text-black" id="honors">
-        <h2 className="text-4xl font-bold text-center mb-12">Honors & Achievements</h2>
+      <div className="h-auto p-10 bg-gray-100 rounded-lg text-black" id="honors">
+        <h2 className="text-4xl font-bold text-center mb-12 uppercase">Honors & Achievements</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (
             <div
@@ -283,21 +355,45 @@ const Home = () => {
       {/* Experience */}
       <div className="h-auto" id="experience">
         <section className="h-auto flex flex-col items-center justify-center bg-white text-black px-6 py-12">
-          <h2 className="text-4xl font-bold mb-8">Experience</h2>
+          <h2 className="text-4xl font-bold mb-8 uppercase">Experience</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
             {experiences.map((exp, index) => (
-              <div key={index} className="bg-gray-100 p-6 rounded-2xl shadow-lg hover:bg-yellow-100 transition-transform duration-200">
-                <h3 className="text-xl font-semibold">{exp.role}</h3>
-                <p className="text-sm text-gray-600">{exp.company} • {exp.duration}</p>
+              <div key={index}
+                className="bg-gray-100 p-6 rounded-2xl shadow-lg hover:bg-yellow-100 transition-transform duration-200 cursor-default">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-xl font-semibold">{exp.role}</h3>
+                  {/* <Chip label={exp.company} variant="outlined" component="a"
+                    href={exp.companyUrl} target="_blank"
+                  /> */}
+
+                  <a href={exp.companyUrl} target="_blank" className="text-blue-500 hover:underline text-sm">
+                    {exp.company}
+                  </a>
+                </div>
+                <p className="text-sm text-gray-600 mt-1">{exp.duration}</p>
                 <p className="mt-2 text-gray-700">{exp.description}</p>
+                <Link href={exp.blogRoute} className="cursor-pointer">
+                  <Chip
+                    label="Read Blog"
+                    variant="outlined"
+                    sx={read_blog_sx}
+                  >
+                    <span>{exp.company}</span>
+                  </Chip>
+                </Link>
+                {/* <Link sx={{ fontSize: '20px', marginLeft: '8px' }} /> */}
+                {/* <Link href={exp.blogRoute} className="cursor-pointer">
+                    Read more ..
+                  </Link> */}
               </div>
             ))}
+
           </div>
         </section>
-      </div>
+      </div >
       {/* Technical workshop */}
-      <div className="h-auto p-6 bg-gray-100" id="news">
+      <div className="h-auto p-6 bg-gray-100" id="news" >
         <div className="title font-bold text-center text-3xl">Technical Workshop</div>
         <Masonry
           breakpointCols={breakpointColumnsObj}
@@ -321,8 +417,8 @@ const Home = () => {
         </Masonry>
       </div>
 
-
-      <section id="education" className="bg-white text-black py-16 px-6">
+      {/* Education */}
+      <section id="education" className="bg-white text-black py-16 px-6" >
         <h2 className="text-4xl font-bold text-center text-blue-600 mb-12 uppercase">
           Education
         </h2>
@@ -352,7 +448,7 @@ const Home = () => {
       <div className="h-auto w-full bg-gray-900 text-white p-4 flex justify-center items-center" id="footer">
         Author Nithesh @2025
       </div>
-    </div>
+    </div >
   );
 }
 

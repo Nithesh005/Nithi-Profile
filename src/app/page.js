@@ -220,12 +220,16 @@ const Home = () => {
       <div className="min-h-screen flex flex-col lg:flex-row justify-around items-center px-6" id="home">
         <div className="flex items-center justify-center">
           <Image
-            className="h-96 w-96 rounded-full object-cover shadow-lg"
-            src="/profile.jpeg" alt="Profile Picture"
+            className="object-cover rounded-lg shadow-lg"
+            src="/profile3.jpg" alt="Profile Picture"
             width={384}
             height={384}
             priority
           />
+          {/* rounded-full 
+          h-96 w-96  
+ shadow-lg
+          */}
         </div>
         <div className="max-w-2xl text-center lg:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">

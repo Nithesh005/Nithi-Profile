@@ -8,6 +8,8 @@ import { FaClipboard, FaEnvelope, FaGraduationCap, FaPhone, FaPhoneAlt } from "r
 import { educationData, experiences } from "../../utils/info";
 import Link from "next/link";
 import { Button, ButtonGroup, Chip, Tooltip } from "@mui/material";
+import WorkshopGallery from "../../components/WorkshopComponent";
+import WorkshopComponent from "../../components/WorkshopComponent";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -180,41 +182,41 @@ const Home = () => {
             <p className="mt-4 text-right font-semibold">— Bill Gates</p>
 
             <div className="mt-4 flex space-x-6 w-full">
-  {/* Phone Number */}
-  <p className="flex items-center text-blue-500 cursor-pointer hover:underline w-full max-w-[calc(50%-24px)] overflow-hidden text-ellipsis">
-    <span
-      onClick={() => copyToClipboard("+919976203099")}
-      className="mr-2 whitespace-nowrap overflow-hidden"
-    >
-      +91 9976203099
-    </span>
-    <FaClipboard
-      onClick={() => copyToClipboard("+919976203099")}
-      className="text-gray-700 cursor-pointer hover:text-blue-500"
-      title="Click to copy"
-    />
-  </p>
+              {/* Phone Number */}
+              <p className="flex items-center text-blue-500 cursor-pointer hover:underline w-full max-w-[calc(50%-24px)] overflow-hidden text-ellipsis">
+                <span
+                  onClick={() => copyToClipboard("+919976203099")}
+                  className="mr-2 whitespace-nowrap overflow-hidden"
+                >
+                  +91 9976203099
+                </span>
+                <FaClipboard
+                  onClick={() => copyToClipboard("+919976203099")}
+                  className="text-gray-700 cursor-pointer hover:text-blue-500"
+                  title="Click to copy"
+                />
+              </p>
 
-  {/* Email */}
-  <p className="flex items-center text-blue-500 cursor-pointer hover:underline w-full max-w-[calc(50%-24px)] overflow-hidden text-ellipsis">
-    <span
-      onClick={() => copyToClipboard("nitheshwaran003@gmail.com")}
-      className="mr-2 whitespace-nowrap overflow-hidden"
-    >
-      nitheshwaran003@gmail.com
-    </span>
-    <FaClipboard
-      onClick={() => copyToClipboard("nitheshwaran003@gmail.com")}
-      className="text-gray-700 cursor-pointer hover:text-blue-500"
-      title="Click to copy"
-    />
-  </p>
-</div>
+              {/* Email */}
+              <p className="flex items-center text-blue-500 cursor-pointer hover:underline w-full max-w-[calc(50%-24px)] overflow-hidden text-ellipsis">
+                <span
+                  onClick={() => copyToClipboard("nitheshwaran003@gmail.com")}
+                  className="mr-2 whitespace-nowrap overflow-hidden"
+                >
+                  nitheshwaran003@gmail.com
+                </span>
+                <FaClipboard
+                  onClick={() => copyToClipboard("nitheshwaran003@gmail.com")}
+                  className="text-gray-700 cursor-pointer hover:text-blue-500"
+                  title="Click to copy"
+                />
+              </p>
+            </div>
 
-{/* Feedback on Copy */}
-{copied && (
-  <p className="text-green-500 mt-2">Copied to clipboard!</p>
-)}
+            {/* Feedback on Copy */}
+            {copied && (
+              <p className="text-green-500 mt-2">Copied to clipboard!</p>
+            )}
 
 
             {/* Button Group - Full Width with Equal Spacing Between Buttons */}
@@ -393,7 +395,8 @@ const Home = () => {
         </section>
       </div >
       {/* Technical workshop */}
-      <div className="h-auto p-6 bg-gray-100" id="news" >
+      <WorkshopComponent workshop_img = {workshop_img} breakpointColumnsObj = {breakpointColumnsObj} />
+      {/* <div className="h-auto p-6 bg-gray-100" id="news" >
         <div className="title font-bold text-center text-3xl">Technical Workshop</div>
         <Masonry
           breakpointCols={breakpointColumnsObj}
@@ -415,7 +418,7 @@ const Home = () => {
             </div>
           ))}
         </Masonry>
-      </div>
+      </div> */}
 
       {/* Education */}
       <section id="education" className="bg-white text-black py-16 px-6" >

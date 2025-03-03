@@ -21,7 +21,7 @@ export default function QuantanicsBlog() {
         {/* Thumbnail Image */}
         <div className="relative h-64 md:h-96 overflow-hidden rounded-xl shadow-lg mb-8">
           <img 
-            src="https://via.placeholder.com/1200x800" 
+            src="/assets/images/Quantainics/wowelse_carrom.jpg" 
             alt="Blog Thumbnail" 
             className="object-cover w-full h-full"
           />

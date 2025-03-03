@@ -33,51 +33,51 @@ const Home = () => {
   const workshop_img = [
     {
       img: "/assets/images/Events/velammal.jpg",
-      alt: "Workshop 2",
-      title: "Workshop 2",
-      description: "Lorem  dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "Velammal",
+      title: "Velammal",
+      description:"I teach students at Velammal Engineering College about Software Workflows and IoT, helping them understand how these technologies are shaping the future.",
     },
     {
       img: "/assets/images/Events/alagappa.jpg",
-      alt: "Workshop 1",
-      title: "Workshop 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "Alagappa College",
+      title: "Alagappa College of Engineering",
+      description: "I was honored to receive appreciation for teaching and training students in Python programming, inspiring them to dive into the world of coding and innovation.",
     },
     {
       img: "/assets/images/Events/NationalClg.jpg",
-      alt: "Workshop 2",
-      title: "Workshop 2",
-      description: "Lorem  dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "National College",
+      title: "National College of Engineering",
+      description: "I’m proud to share that I had the opportunity to represent my office and my trust at the MOE Signature event at the National College of Engineering.",
     },
     {
       img: "/assets/images/Events/alagappaStu.jpg",
-      alt: "Workshop 2",
-      title: "Workshop 2",
-      description: "Lorem  dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "Alagappa College of Engineering",
+      title: "Alagappa College of Engineering",
+      description: "I have received immense trust and appreciation from my students for my teaching and training.",
     },
     {
       img: "/assets/images/Events/mamcet2ndyr.jpg",
-      alt: "Workshop 2",
-      title: "Workshop 2",
-      description: "Lorem  dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "Technical Workshop",
+      title: "Technical Workshop",
+      description: "I delivered a heartfelt thank you and guidance speech to my students who have shown me incredible support and love.",
     },
     {
       img: "/assets/images/Events/Mamcet.jpg",
-      alt: "Workshop 2",
-      title: "Workshop 2",
-      description: "Lorem  dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "Technical Staff Member",
+      title: "Technical Staff Member",
+      description: "I have been a part of the technical staff at MAMCET College of Engineering and Technology, where I have been able to share my knowledge and experience with students.",
     },
     {
       img: "/assets/images/Events/cls_with_srn_sir.jpg",
-      alt: "Workshop 2",
-      title: "Workshop 2",
-      description: "Lorem  dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "Technical Training",
+      title: "Technical Training",
+      description: "I had the opportunity to inspire students at Alagappa College of Engineering by sharing my expertise in Python programming and sparking their logical thinking skills.",
     },
     {
       img: "/assets/images/Events/MamcetJava.jpg",
-      alt: "Workshop 1",
-      title: "Workshop 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tellus ex. Donec sed velit vel libero tristique luctus.",
+      alt: "MAMCET Java Training",
+      title: "MAMCET Java Training",
+      description: "I have trained nearly 700 to 800 students in total, and I’m proud to say that I successfully engaged over 200 students in a single class, fostering full participation and involvement.",
     },
 
   ]
@@ -92,21 +92,21 @@ const Home = () => {
   const [selectedCert, setSelectedCert] = useState(null);
   const certificates = [
     {
-      title: "Certification 1",
+      title: "IBM Certificate",
       image: "/assets/images/Honurs/Ibm.jpg",
-      description: "Description for Certification 1",
+      description: "Earned a certificate for successfully completing the course, with a rewarding project launch as a testament to the dedication and hard work put into it.",
       detailsLink: "/cert1-details"
     },
     {
-      title: "Certification 2",
+      title: "Java Certificate",
       image: "/assets/images/Honurs/JavaSololearn.png",
-      description: "Description for Certification 2",
+      description: "I hold a Java Core certification from the SoloLearn platform, backed by a strong foundation in Java fundamentals.",
       detailsLink: "/cert2-details"
     },
     {
-      title: "Certification 3",
+      title: "SQL Certificate",
       image: "/assets/images/Honurs/SqlHackerrank.jpg",
-      description: "Description for Certification 3",
+      description: "I earned an SQL certification from HackerRank, highlighting my expertise in database management and essential querying techniques.",
       detailsLink: "/cert3-details"
     }
   ];

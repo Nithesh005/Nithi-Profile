@@ -26,7 +26,7 @@ const WorkshopComponent = ({ workshop_img, breakpointColumnsObj }) => {
   };
 
   return (
-    <div className="h-auto p-6 bg-gray-100" id="news">
+    <div className="h-auto p-6 bg-gray-100" id="workshop">
       <div className="title font-bold text-center text-3xl">Technical Workshop</div>
       
       <Masonry

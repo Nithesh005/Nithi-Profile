@@ -5,7 +5,7 @@ const experiences = [
         duration: "Jul 2024 - Present",
         companyUrl: "https://wowelse.com/",
         description: "Worked on building scalable web applications with React, Next.js, and Node.js.",
-        blogRoute: "/blogs/life-at-wowelse"
+        blogRoute: "/blogs/life-at-wowelse",
     },
     {
         role: "PERN Stack Developer",

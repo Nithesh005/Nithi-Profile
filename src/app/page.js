@@ -35,7 +35,7 @@ const Home = () => {
       img: "/assets/images/Events/velammal.jpg",
       alt: "Velammal",
       title: "Velammal",
-      description:"I teach students at Velammal Engineering College about Software Workflows and IoT, helping them understand how these technologies are shaping the future.",
+      description: "I teach students at Velammal Engineering College about Software Workflows and IoT, helping them understand how these technologies are shaping the future.",
     },
     {
       img: "/assets/images/Events/alagappa.jpg",
@@ -269,8 +269,8 @@ const Home = () => {
           {/* Desktop Menu */}
           <div className="p-1 hidden md:flex gap-4 items-center">
             <a className="p-4 hover:text-yellow-700" href="#home">Home</a>
-            <a className="p-4 hover:text-yellow-700" href="#news">Workshop</a>
-            <a className="p-4 hover:text-yellow-700" href="#contact">Qualification</a>
+            <a className="p-4 hover:text-yellow-700" href="#experience">Experience</a>
+            <a className="p-4 hover:text-yellow-700" href="#workshop">Workshop</a>
             <a className="p-4 hover:text-yellow-700" href="#about">About</a>
             <button
               onClick={showAlert}
@@ -375,7 +375,10 @@ const Home = () => {
                 </div>
                 <p className="text-sm text-gray-600 mt-1">{exp.duration}</p>
                 <p className="mt-2 text-gray-700">{exp.description}</p>
-                <Link href={exp.blogRoute} className="cursor-pointer">
+                <Link href={exp.blogRoute}>
+                  <Button variant="contained" sx={{ width: '100%', background: '#efc500', color: 'black', borderRadius: '7px' }}>Read Blog</Button>
+                </Link>
+                {/* <Link href={exp.blogRoute} className="cursor-pointer">
                   <Chip
                     label="Read Blog"
                     variant="outlined"
@@ -383,11 +386,7 @@ const Home = () => {
                   >
                     <span>{exp.company}</span>
                   </Chip>
-                </Link>
-                {/* <Link sx={{ fontSize: '20px', marginLeft: '8px' }} /> */}
-                {/* <Link href={exp.blogRoute} className="cursor-pointer">
-                    Read more ..
-                  </Link> */}
+                </Link> */}
               </div>
             ))}
 
@@ -395,7 +394,7 @@ const Home = () => {
         </section>
       </div >
       {/* Technical workshop */}
-      <WorkshopComponent workshop_img = {workshop_img} breakpointColumnsObj = {breakpointColumnsObj} />
+      <WorkshopComponent workshop_img={workshop_img} breakpointColumnsObj={breakpointColumnsObj} />
       {/* <div className="h-auto p-6 bg-gray-100" id="news" >
         <div className="title font-bold text-center text-3xl">Technical Workshop</div>
         <Masonry

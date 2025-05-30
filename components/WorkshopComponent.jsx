@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Masonry from 'react-masonry-css';
+import { motion } from "framer-motion";
 
 const WorkshopComponent = ({ workshop_img, breakpointColumnsObj }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,28 +28,46 @@ const WorkshopComponent = ({ workshop_img, breakpointColumnsObj }) => {
 
   return (
     <div className="h-auto p-6 bg-gray-100" id="workshop">
-      <div className="title font-bold text-center text-3xl">Technical Workshop</div>
-      
+      <div className="title font-bold text-center text-3xl p-6">Technical Workshop</div>
+
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="flex gap-4"
         columnClassName="masonry-column"
       >
-        {workshop_img.map((item, key) => (
-          <div key={key} className="mb-4">
-            <Image
-              className="mb-4 cursor-pointer"
-              src={item.img}
-              alt={item.alt}
-              width={384}
-              height={216}
-              priority
-              onClick={() => openModal(item)} // Open modal on click
-            />
-            <div className="title font-bold text-xl">{item.title}</div>
-            <p>{item.description}</p>
-          </div>
+        {workshop_img.map((item, index) => (
+          <motion.div
+            key={item.id || index} // Use item.id if available; otherwise, use index
+            className="mb-6 p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            {/* Image with Hover & Click Animation */}
+            <motion.div
+              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)" }}
+              whileTap={{ scale: 0.95 }}
+              className="overflow-hidden rounded-lg cursor-pointer"
+              onClick={() => openModal(item)}
+            >
+              <Image
+                src={item.img}
+                alt={item.alt}
+                width={384}
+                height={216}
+                priority
+                className="w-full h-auto rounded-lg"
+              />
+            </motion.div>
+
+            {/* Title & Description */}
+            <div className="text-center mt-4">
+              <h3 className="title font-bold text-2xl text-gray-800">{item.title}</h3>
+              {/* <p className="text-gray-600 mt-2">{item.description}</p> */}
+            </div>
+          </motion.div>
         ))}
+
       </Masonry>
 
       {/* Modal */}

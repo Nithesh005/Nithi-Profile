@@ -1,9 +1,11 @@
-"use client"
+'use client';
 import { Button } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import { useState } from "react";
 
 export default function WowelseBlog() {
+    const router = useRouter();
     const [feedback, setFeedback] = useState('');
 
     const handleFeedbackChange = (e) => {
@@ -15,13 +17,14 @@ export default function WowelseBlog() {
         setFeedback(''); // Clear the textarea after submitting
     };
 
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Blog Container */}
             <div className="max-w-4xl mx-auto p-6">
-                <Link href='/'>
-                    <Button>Back to Home</Button>
-                </Link>
+                <Button onClick={() => router.back()}>
+                    Back
+                </Button>
 
                 {/* Thumbnail Image */}
                 <div className="relative h-64 md:h-96 overflow-hidden rounded-xl shadow-lg mb-8 border-4 border-gray-300">
@@ -73,21 +76,26 @@ export default function WowelseBlog() {
 
                 {/* <h2 className="text-2xl font-semibold text-gray-900 mb-4">Healthy Environment</h2> */}
                 {/* Blog Description */}
-                <div className="healthy_environment flex items-start">
+                <div className="healthy_environment flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6">
                     {/* Image container */}
-                    <div className="flex justify-center items-start mb-4 mr-4">
+                    <div className="flex justify-center items-start">
                         <img
                             src="/assets/images/Wowelse/wowelseCarom.jpg"
                             alt="Healthy Environment"
-                            className="h-98 w-98 object-contain"
+                            className="h-48 w-48 md:h-64 md:w-64 object-contain"
                         />
                     </div>
 
                     {/* Text container */}
-                    <p className="text-lg text-gray-700">
-                        Wowelse emphasizes a healthy environment and values collaboration with the community. They provide resources and support to help people transition from working remotely to a more healthy, supportive, and fulfilling workplace.
+                    <p className="text-sm md:text-base text-gray-600 font-serif leading-relaxed md:max-w-lg">
+                        Wowelse emphasizes a healthy environment and values collaboration with the community.
+                        They provide resources and support to help people transition from working remotely to a more healthy, supportive, and fulfilling workplace.
+                        By fostering teamwork and well-being, they create spaces where creativity and productivity can thrive.
+                        Their initiatives include wellness programs, sustainable workspaces, and engaging community events.
+                        With a strong commitment to innovation, Wowelse helps professionals achieve a balanced and enriching work-life experience.
                     </p>
                 </div>
+
 
 
                 {/* <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -110,9 +118,9 @@ export default function WowelseBlog() {
                         <Button onClick={handleSubmitFeedback} variant="outlined" >
                             Submit Feedback
                         </Button>
-                        <Link href='/'>
-                            <Button variant="contained">Back to Home</Button>
-                        </Link>
+                        <Button variant="contained" onClick={() => router.back()}>
+                            Previous Page
+                        </Button>
                     </div>
                 </div>
             </div>

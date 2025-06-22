@@ -32,7 +32,7 @@ const AboutSection = () => {
     },
     {
       icon: GraduationCap,
-      value: education.length,
+      value: 1 ,//education.length,
       label: "Educational Degrees",
       color: "text-primary-600",
     },

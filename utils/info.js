@@ -1,16 +1,16 @@
 // Personal Information
 export const personalInfo = {
     name: "Nithesh",
-    fullName: "Nithesh Kumar",
+    fullName: "Nitheshwaran",
     title: "Software Engineer",
     tagline: "Crafting digital solutions with code and creativity",
     email: "nitheshwaran003@gmail.com",
     phone: "+91 9976203099",
-    location: "Chennai, Tamil Nadu, India",
+    location: "Dharmapuri, Tamil Nadu, India",
     website: "https://nithesh.dev",
-    github: "https://github.com/nithesh-kumar",
-    linkedin: "https://linkedin.com/in/nithesh-kumar",
-    twitter: "https://twitter.com/nithesh_kumar",
+    github: "https://github.com/Nithesh005",
+    linkedin: "https://www.linkedin.com/in/nitheshwaran/",
+    // twitter: "https://twitter.com/nithesh_kumar",
     about: "I'm a passionate Software Engineer with expertise in full-stack development, specializing in modern web technologies. I love solving complex problems and building scalable applications that make a difference.",
     summary: "Experienced software engineer with 2+ years in full-stack development, specializing in React, Node.js, and cloud technologies. Proven track record of delivering high-quality applications and mentoring junior developers.",
 };
@@ -23,7 +23,7 @@ export const experiences = [
         company: "Wowelse Branding Studio Technologies",
         companyUrl: "https://wowelse.com/",
         duration: "July 2024 - Present",
-        location: "Chennai, India",
+        location: "Coimbatore, India",
         type: "Full-time",
         description: "Leading backend development initiatives for a creative branding studio, focusing on scalable web applications and API development.",
         achievements: [
@@ -33,7 +33,7 @@ export const experiences = [
             "Reduced API response time by 60% through optimization and caching strategies",
             "Collaborated with design team to implement user-friendly interfaces"
         ],
-        technologies: ["Node.js", "Express.js", "MongoDB", "Redis", "Docker", "AWS", "REST APIs"],
+        technologies: ["Python","MongoDB", "AWS", "REST APIs", "Redis", "Docker", "Git"],
         blogRoute: "/blogs/life-at-wowelse",
         image: "/assets/images/Wowelse/wowelseIndex.png",
         featured: true
@@ -44,7 +44,7 @@ export const experiences = [
         company: "Quantanics Tech Serv Pvt Ltd",
         companyUrl: "https://quantanics.in/",
         duration: "March 2023 - April 2024",
-        location: "Chennai, India",
+        location: "Madurai, India",
         type: "Full-time",
         description: "Full-stack development role focusing on building comprehensive web applications using modern technologies.",
         achievements: [
@@ -69,7 +69,7 @@ export const education = [
         institution: "Anna University Regional Campus",
         location: "Chennai, India",
         duration: "2019 - 2023",
-        score: "GPA: 7.96/10",
+        score: "GPA: 8.0/10",
         description: "Comprehensive computer science education with focus on software engineering, algorithms, and system design.",
         achievements: [
             "Final year project: AI-powered recommendation system",
@@ -117,43 +117,38 @@ export const education = [
 export const skills = {
     programming: [
         { name: "JavaScript", level: 90, category: "language" },
-        { name: "TypeScript", level: 85, category: "language" },
-        { name: "Python", level: 80, category: "language" },
-        { name: "Java", level: 75, category: "language" },
+        { name: "Python", level: 90, category: "language" },
+        { name: "Java", level: 90, category: "language" },
         { name: "SQL", level: 85, category: "language" }
     ],
     frontend: [
         { name: "React", level: 90, category: "framework" },
         { name: "Next.js", level: 85, category: "framework" },
-        { name: "HTML/CSS", level: 95, category: "markup" },
         { name: "Tailwind CSS", level: 90, category: "styling" },
-        { name: "Material-UI", level: 85, category: "ui" },
-        { name: "Redux", level: 80, category: "state" }
+        { name: "Material-UI", level: 85, category: "ui" }
     ],
     backend: [
-        { name: "Node.js", level: 90, category: "runtime" },
-        { name: "Express.js", level: 85, category: "framework" },
-        { name: "REST APIs", level: 90, category: "api" },
-        { name: "GraphQL", level: 75, category: "api" },
-        { name: "WebSocket", level: 80, category: "real-time" }
+        { name: "Flask", level: 98, category: "framework" },
+        { name: "Express.js", level: 90, category: "framework" },
+        { name: "REST APIs", level: 98, category: "api" },
+        { name: "WebSocket", level: 90, category: "real-time" }
     ],
     database: [
-        { name: "MongoDB", level: 85, category: "nosql" },
+        { name: "MongoDB", level: 90, category: "nosql" },
         { name: "PostgreSQL", level: 80, category: "sql" },
         { name: "Redis", level: 75, category: "cache" },
-        { name: "MySQL", level: 70, category: "sql" }
+        { name: "MySQL", level: 80, category: "sql" }
     ],
     devops: [
-        { name: "Git", level: 90, category: "version-control" },
-        { name: "Docker", level: 80, category: "containerization" },
+        { name: "Git", level: 80, category: "version-control" },
         { name: "AWS", level: 75, category: "cloud" },
-        { name: "CI/CD", level: 70, category: "automation" }
+        { name: "Docker", level: 70, category: "containerization" }
     ],
     tools: [
         { name: "VS Code", level: 95, category: "editor" },
-        { name: "Postman", level: 85, category: "api-testing" },
+        { name: "Postman", level: 95, category: "api-testing" },
         { name: "Figma", level: 70, category: "design" },
-        { name: "Jira", level: 80, category: "project-management" }
+        { name: "Jira", level: 70, category: "project-management" }
     ]
 };
 
@@ -163,36 +158,36 @@ export const certifications = [
         id: "ibm",
         title: "IBM Full Stack Software Developer",
         issuer: "IBM",
-        date: "2024",
+        date: "13-MAR-2023",
         credentialId: "IBM-FSSD-2024",
         image: "/assets/images/Honurs/Ibm.jpg",
         description: "Comprehensive full-stack development certification covering modern web technologies and best practices.",
-        skills: ["React", "Node.js", "Cloud Computing", "DevOps"],
-        url: "https://www.ibm.com/certifications",
+        skills: ["Project Management", "Cloud Computing", "DevOps"],
+        url: "https://courses.ictacademy.skillsnetwork.site/certificates/62f04e18f6b841848b29c4b2b8c1a2cc",
         featured: true
     },
     {
         id: "java",
         title: "Java Core Certification",
         issuer: "SoloLearn",
-        date: "2023",
-        credentialId: "SL-JAVA-2023",
+        date: "26-OCT-2022",
+        credentialId: "CT-PL6PPEPM",
         image: "/assets/images/Honurs/JavaSololearn.png",
         description: "Advanced Java programming certification demonstrating proficiency in core Java concepts and OOP principles.",
         skills: ["Java", "Object-Oriented Programming", "Data Structures"],
-        url: "https://www.sololearn.com",
+        url: "https://www.sololearn.com/en/profile/15878400",
         featured: true
     },
     {
         id: "sql",
         title: "SQL Certification",
         issuer: "HackerRank",
-        date: "2023",
-        credentialId: "HR-SQL-2023",
+        date: "14-FEB-2024",
+        credentialId: "F8D5401A9C65",
         image: "/assets/images/Honurs/SqlHackerrank.jpg",
         description: "Database management and SQL querying certification showcasing expertise in data manipulation and optimization.",
         skills: ["SQL", "Database Design", "Query Optimization"],
-        url: "https://www.hackerrank.com",
+        url: "https://www.hackerrank.com/certificates/f8d5401a9c65",
         featured: true
     }
 ];
@@ -254,8 +249,8 @@ export const workshops = [
         date: "2024",
         image: "/assets/images/Events/velammal.jpg",
         description: "Conducted comprehensive workshop on modern software development workflows and Internet of Things technologies.",
-        attendees: "150+ students",
-        topics: ["Git Workflows", "CI/CD Pipelines", "IoT Fundamentals", "Cloud Integration"],
+        attendees: "50+ students",
+        topics: ["IoT Fundamentals", "Git Workflows", "Developemnt",  "Database Architecture"],
         featured: true
     },
     {
@@ -287,7 +282,7 @@ export const workshops = [
         date: "2023",
         image: "/assets/images/Events/MamcetJava.jpg",
         description: "Large-scale Java programming workshop with hands-on coding sessions and project development.",
-        attendees: "800+ students",
+        attendees: "700+ students",
         topics: ["Java Core", "Object-Oriented Programming", "Project Development"],
         featured: true
     }

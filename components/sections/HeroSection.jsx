@@ -78,8 +78,8 @@ const HeroSection = () => {
               </motion.button>
               
               <motion.a
-                href="/resume.pdf"
-                download
+                href="/assets/T_Nitheshwaran_.pdf"
+                    download="T_Nitheshwaran_Resume.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-outline flex items-center justify-center space-x-2"
@@ -175,7 +175,7 @@ const HeroSection = () => {
                   className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg border border-secondary-200"
                 >
                   <div className="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">NK</span>
+                    <span className="text-white font-bold text-sm">N</span>
                   </div>
                 </motion.div>
                 
@@ -185,7 +185,7 @@ const HeroSection = () => {
                   className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg border border-secondary-200"
                 >
                   <div className="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">💻</span>
+                    <span className="text-white font-bold text-sm">✨</span>
                   </div>
                 </motion.div>
               </motion.div>

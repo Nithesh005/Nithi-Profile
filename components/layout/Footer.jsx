@@ -110,7 +110,7 @@ const Footer = () => {
             <p className="text-secondary-400 text-sm flex items-center space-x-1">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-red-500" />
-              <span>in Chennai, India</span>
+              <span>in Tamil Nadu, India</span>
             </p>
           </div>
         </div>

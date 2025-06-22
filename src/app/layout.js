@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Nithesh Kumar - Software Engineer",
+  title: "Nitheshwaran - Software Engineer",
   description: "Experienced Software Engineer specializing in full-stack development, React, Node.js, and modern web technologies. Building scalable applications that make a difference.",
   keywords: [
     "Software Engineer",
@@ -24,9 +24,9 @@ export const metadata = {
     "Chennai",
     "India"
   ],
-  authors: [{ name: "Nithesh Kumar" }],
-  creator: "Nithesh Kumar",
-  publisher: "Nithesh Kumar",
+  authors: [{ name: "Nitheshwaran" }],
+  creator: "Nitheshwaran",
+  publisher: "Nitheshwaran",
   formatDetection: {
     email: false,
     address: false,
@@ -37,16 +37,16 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Nithesh Kumar - Software Engineer",
+    title: "Nitheshwaran - Software Engineer",
     description: "Experienced Software Engineer specializing in full-stack development, React, Node.js, and modern web technologies.",
     url: "https://nithesh.dev",
-    siteName: "Nithesh Kumar Portfolio",
+    siteName: "Nitheshwaran Portfolio",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Nithesh Kumar - Software Engineer",
+        alt: "Nitheshwaran - Software Engineer",
       },
     ],
     locale: "en_US",
@@ -54,10 +54,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nithesh Kumar - Software Engineer",
+    title: "Nitheshwaran - Software Engineer",
     description: "Experienced Software Engineer specializing in full-stack development, React, Node.js, and modern web technologies.",
     images: ["/og-image.jpg"],
-    creator: "@nithesh_kumar",
+    creator: "@nithesh_waran",
   },
   robots: {
     index: true,

@@ -80,8 +80,8 @@ const Header = () => {
               <span>Contact</span>
             </motion.a>
             <motion.a
-              href="/resume.pdf"
-              download
+              href="/assets/T_Nitheshwaran_.pdf"
+              download="T_Nitheshwaran_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary flex items-center space-x-2"
@@ -132,8 +132,8 @@ const Header = () => {
                     <span>Contact</span>
                   </motion.a>
                   <motion.a
-                    href="/resume.pdf"
-                    download
+                    href="/assets/T_Nitheshwaran_.pdf"
+                    download="T_Nitheshwaran_Resume.pdf"
                     whileTap={{ scale: 0.95 }}
                     className="btn-primary w-full flex items-center justify-center space-x-2"
                   >

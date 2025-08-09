@@ -40,7 +40,7 @@ const WorkshopsSection = () => {
               className="card card-hover overflow-hidden"
             >
               {/* Workshop Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 lg:h-72 overflow-hidden">
                 <Image
                   src={workshop.image}
                   alt={workshop.title}

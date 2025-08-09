@@ -16,49 +16,43 @@ const SkillsSection = () => {
       title: "Programming Languages",
       icon: Code,
       skills: skills.programming,
-      color: "text-primary-500",
-      bgColor: "bg-primary-50",
-      borderColor: "border-primary-200",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
       title: "Frontend Development",
       icon: Monitor,
       skills: skills.frontend,
-      color: "text-accent-500",
-      bgColor: "bg-accent-50",
-      borderColor: "border-accent-200",
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
     },
     {
       title: "Backend Development",
       icon: Code,
       skills: skills.backend,
-      color: "text-secondary-500",
-      bgColor: "bg-secondary-50",
-      borderColor: "border-secondary-200",
+      color: "text-green-600",
+      bgColor: "bg-green-50",
     },
     {
       title: "Database & Storage",
       icon: Database,
       skills: skills.database,
-      color: "text-primary-600",
-      bgColor: "bg-primary-50",
-      borderColor: "border-primary-200",
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
     },
     {
       title: "DevOps & Cloud",
       icon: Cloud,
       skills: skills.devops,
-      color: "text-accent-600",
-      bgColor: "bg-accent-50",
-      borderColor: "border-accent-200",
+      color: "text-indigo-600",
+      bgColor: "bg-indigo-50",
     },
     {
       title: "Tools & Platforms",
       icon: Wrench,
       skills: skills.tools,
-      color: "text-secondary-600",
-      bgColor: "bg-secondary-50",
-      borderColor: "border-secondary-200",
+      color: "text-pink-600",
+      bgColor: "bg-pink-50",
     },
   ];
 
@@ -94,64 +88,65 @@ const SkillsSection = () => {
           </p>
         </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        {/* Skills Grid - Minimal Design */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
-              className="card p-6"
+              className="group"
             >
               {/* Category Header */}
               <div className="flex items-center space-x-3 mb-6">
-                <div className={`p-3 rounded-lg ${category.bgColor}`}>
-                  <category.icon className={`w-6 h-6 ${category.color}`} />
+                <div className={`p-2 rounded-lg ${category.bgColor}`}>
+                  <category.icon className={`w-5 h-5 ${category.color}`} />
                 </div>
-                <h3 className="heading-tertiary">{category.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">{category.title}</h3>
               </div>
 
-              {/* Skills Grid */}
-              <div className="grid grid-cols-2 gap-3">
+              {/* Skills List */}
+              <div className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ 
                       delay: categoryIndex * 0.1 + skillIndex * 0.05, 
                       duration: 0.4 
                     }}
-                    className="group relative"
+                    className="group/item"
                   >
-                    <div className="p-3 rounded-lg border border-secondary-200 hover:border-primary-300 transition-all duration-200 hover:shadow-md">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-secondary-900">
+                    <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-2 h-2 rounded-full bg-gray-300 group-hover/item:bg-blue-500 transition-colors duration-200"></div>
+                        <span className="text-sm font-medium text-gray-700">
                           {skill.name}
                         </span>
-                        <span className={`text-xs px-2 py-1 rounded-full ${getSkillLevelColor(skill.level)}`}>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-xs text-gray-500 font-medium">
                           {getSkillLevelText(skill.level)}
                         </span>
-                      </div>
-                      
-                      {/* Skill Level Indicator */}
-                      <div className="w-full bg-secondary-200 rounded-full h-1.5">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={inView ? { width: `${skill.level}%` } : {}}
-                          transition={{ 
-                            delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.2, 
-                            duration: 0.8,
-                            ease: "easeOut"
-                          }}
-                          className={`h-1.5 rounded-full ${
-                            skill.level >= 90 ? "bg-primary-500" :
-                            skill.level >= 80 ? "bg-accent-500" :
-                            skill.level >= 70 ? "bg-secondary-500" :
-                            "bg-secondary-400"
-                          }`}
-                        />
+                        <div className="w-16 h-1 bg-gray-200 rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={inView ? { width: `${skill.level}%` } : {}}
+                            transition={{ 
+                              delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3, 
+                              duration: 0.8,
+                              ease: "easeOut"
+                            }}
+                            className={`h-full rounded-full ${
+                              skill.level >= 90 ? "bg-blue-500" :
+                              skill.level >= 80 ? "bg-purple-500" :
+                              skill.level >= 70 ? "bg-green-500" :
+                              "bg-gray-400"
+                            }`}
+                          />
+                        </div>
                       </div>
                     </div>
                   </motion.div>

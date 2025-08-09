@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Calendar, MapPin, ExternalLink, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, ExternalLink, ArrowRight, Briefcase } from "lucide-react";
 import { experiences } from "../../utils/info";
 import Link from "next/link";
 
@@ -11,6 +11,18 @@ const ExperienceSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Determine grid layout based on number of experiences
+  const getGridClass = (count) => {
+    if (count === 1) return "max-w-2xl mx-auto";
+    if (count === 2) return "grid lg:grid-cols-2 gap-8";
+    if (count === 3) return "grid lg:grid-cols-3 gap-6";
+    if (count === 4) return "grid lg:grid-cols-2 gap-8";
+    if (count === 5) return "grid lg:grid-cols-3 gap-6";
+    if (count === 6) return "grid lg:grid-cols-3 gap-6";
+    // For 7+ experiences, use a 3-column grid
+    return "grid lg:grid-cols-3 gap-6";
+  };
 
   return (
     <section id="experience" className="section-padding bg-white">
@@ -30,118 +42,130 @@ const ExperienceSection = () => {
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-accent-500 transform lg:translate-x-px"></div>
+        <div className={getGridClass(experiences.length)}>
+          {experiences.map((experience, index) => (
+            <motion.div
+              key={experience.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              className="group"
+            >
+              <div className="relative h-full bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:border-primary-300 transition-all duration-300 hover:shadow-lg">
+                {/* Top Badge */}
+                <div className="absolute -top-3 left-6">
+                  <div className="bg-primary-500 text-white px-4 py-1 rounded-full text-xs font-medium">
+                    {experience.type}
+                  </div>
+                </div>
 
-          <div className="space-y-12">
-            {experiences.map((experience, index) => (
-              <motion.div
-                key={experience.id}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
-                className={`relative flex items-start ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-6 lg:left-1/2 top-6 w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-lg transform lg:-translate-x-2"></div>
-
-                {/* Content */}
-                <div className={`ml-16 lg:ml-0 lg:w-5/12 ${
-                  index % 2 === 0 ? "lg:pr-8" : "lg:pl-8"
-                }`}>
-                  <div className="card card-hover p-6">
-                    {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-semibold text-secondary-900 mb-1">
-                          {experience.role}
-                        </h3>
-                        <div className="flex items-center space-x-4 text-sm text-secondary-600">
-                          <div className="flex items-center space-x-1">
-                            <Calendar className="w-4 h-4" />
-                            <span>{experience.duration}</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <MapPin className="w-4 h-4" />
-                            <span>{experience.location}</span>
-                          </div>
-                        </div>
-                      </div>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 mt-2 sm:mt-0">
-                        {experience.type}
-                      </span>
+                {/* Header */}
+                <div className="mb-6 pt-4">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Briefcase className="w-6 h-6 text-primary-600" />
                     </div>
-
-                    {/* Company */}
-                    <div className="mb-4">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 truncate">
+                        {experience.role}
+                      </h3>
                       <a
                         href={experience.companyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 text-accent-600 hover:text-accent-700 font-medium transition-colors duration-200"
+                        className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200"
                       >
-                        <span>{experience.company}</span>
-                        <ExternalLink className="w-4 h-4" />
+                        <span className="text-lg truncate">{experience.company}</span>
+                        <ExternalLink className="w-4 h-4 flex-shrink-0" />
                       </a>
                     </div>
+                  </div>
 
-                    {/* Description */}
-                    <p className="text-body mb-4">{experience.description}</p>
-
-                    {/* Achievements */}
-                    {experience.achievements && experience.achievements.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-secondary-700 mb-2">Key Achievements:</h4>
-                        <ul className="space-y-1">
-                          {experience.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start space-x-2 text-sm text-secondary-600">
-                              <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 flex-shrink-0"></span>
-                              <span>{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  {/* Meta Info */}
+                  <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
+                    <div className="flex items-center space-x-1">
+                      <Calendar className="w-4 h-4" />
+                      <span className="truncate">{experience.duration}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <MapPin className="w-4 h-4" />
+                      <span className="truncate">{experience.location}</span>
+                    </div>
+                    {experience.featured && (
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        Featured
+                      </span>
                     )}
-
-                    {/* Technologies */}
-                    {experience.technologies && experience.technologies.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-secondary-700 mb-2">Technologies:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {experience.technologies.map((tech, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-1 bg-secondary-100 text-secondary-700 text-xs rounded-md"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Blog Link */}
-                    <Link href={experience.blogRoute}>
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="btn-outline w-full flex items-center justify-center space-x-2"
-                      >
-                        <span>Read Blog Post</span>
-                        <ArrowRight size={16} />
-                      </motion.button>
-                    </Link>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* Description */}
+                <p className="text-gray-700 mb-6 leading-relaxed line-clamp-3">
+                  {experience.description}
+                </p>
+
+                {/* Achievements */}
+                {experience.achievements && experience.achievements.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
+                      <span className="w-2 h-2 bg-primary-500 rounded-full mr-2"></span>
+                      Key Achievements
+                    </h4>
+                    <ul className="space-y-2">
+                      {experience.achievements.slice(0, experiences.length <= 2 ? 4 : 2).map((achievement, idx) => (
+                        <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600">
+                          <span className="text-primary-500 mt-1 flex-shrink-0">•</span>
+                          <span className="line-clamp-2">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Technologies */}
+                {experience.technologies && experience.technologies.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center">
+                      <span className="w-2 h-2 bg-accent-500 rounded-full mr-2"></span>
+                      Technologies
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {experience.technologies.slice(0, experiences.length <= 2 ? 8 : 4).map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-accent-50 text-accent-700 text-xs rounded-lg font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {experience.technologies.length > (experiences.length <= 2 ? 8 : 4) && (
+                        <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-lg font-medium">
+                          +{experience.technologies.length - (experiences.length <= 2 ? 8 : 4)} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Blog Link */}
+                <div className="mt-auto">
+                  <Link href={experience.blogRoute}>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-white border border-primary-200 text-primary-600 hover:bg-primary-50 hover:border-primary-300 font-medium rounded-lg transition-all duration-200"
+                    >
+                      <span>Read Blog Post</span>
+                      <ArrowRight size={16} />
+                    </motion.button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA - Keep Original Design */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

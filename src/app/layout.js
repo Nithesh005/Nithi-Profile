@@ -32,14 +32,14 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://nithesh.dev"),
+  metadataBase: new URL("https://nithi.xyz"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Nitheshwaran - Software Engineer",
     description: "Experienced Software Engineer specializing in full-stack development, React, Node.js, and modern web technologies.",
-    url: "https://nithesh.dev",
+    url: "https://nithi.xyz",
     siteName: "Nitheshwaran Portfolio",
     images: [
       {

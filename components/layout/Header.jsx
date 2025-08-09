@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download, Mail, ChevronDown } from "lucide-react";
 import { navigation, personalInfo } from "../../utils/info";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +14,12 @@ const Header = () => {
   const [blogsDropdownOpen, setBlogsDropdownOpen] = useState(false);
   const [exploreDropdownOpen, setExploreDropdownOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      // smaller threshold so header solidifies with a slight scroll
+      setScrolled(window.scrollY > 12);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,10 +31,18 @@ const Header = () => {
 
   const handleNavClick = (href) => {
     closeMenu();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith('#')) {
+      if (pathname !== '/') {
+        router.push(`/${href}`);
+        return;
+      }
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
     }
+    router.push(href);
   };
 
   const handleDropdownClick = (href, isExternal = false) => {
@@ -48,7 +58,11 @@ const Header = () => {
       // Navigate to the page using Next.js router (no page reload)
       router.push(href);
     } else {
-      // Smooth scroll to section
+      // Anchor navigation
+      if (pathname !== '/') {
+        router.push(`/${href}`);
+        return;
+      }
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -90,7 +104,8 @@ const Header = () => {
       name: "Explore",
       href: "#explore",
       dropdown: [
-        { name: "Rocket Science", href: "https://rocketscience.nithesh.xyz", isExternal: true },
+        { name: "Achievements", href: "/achievements" },
+        { name: "Rocket Science", href: "https://rocketscience.nithi.xyz", isExternal: true },
         // { name: "Task Manager", href: "https://tasks.nithesh.dev", isExternal: true },
         // { name: "Weather App", href: "https://weather.nithesh.dev", isExternal: true },
         // { name: "Portfolio v1", href: "https://old.nithesh.dev", isExternal: true }
@@ -115,7 +130,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <Link href="#home" className="text-2xl font-bold gradient-text">
+            <Link href="/#home" className="text-2xl font-bold gradient-text">
               {personalInfo.name}
             </Link>
           </motion.div>

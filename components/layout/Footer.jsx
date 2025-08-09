@@ -3,9 +3,29 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 import { personalInfo } from "../../utils/info";
+import { useRouter, usePathname } from "next/navigation";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const handleNavClick = (href) => {
+    if (href.startsWith('#')) {
+      if (pathname !== '/') {
+        router.push(`/${href}`);
+        return;
+      }
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
+    }
+    router.push(href);
+  };
+
 
   const socialLinks = [
     {
@@ -55,24 +75,28 @@ const Footer = () => {
               <a
                 href="#home"
                 className="text-secondary-300 hover:text-white transition-colors duration-200"
+                onClick={()=>handleNavClick("#home")}
               >
                 Home
               </a>
               <a
                 href="#about"
                 className="text-secondary-300 hover:text-white transition-colors duration-200"
+                onClick={()=>handleNavClick("#about")}
               >
                 About
               </a>
               <a
                 href="#experience"
                 className="text-secondary-300 hover:text-white transition-colors duration-200"
+                onClick={()=>handleNavClick("#experience")}
               >
                 Experience
               </a>
               <a
                 href="#skills"
                 className="text-secondary-300 hover:text-white transition-colors duration-200"
+                onClick={()=>handleNavClick("#skills")}
               >
                 Skills
               </a>

@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Clock, User, ExternalLink, Heart, MessageCircle, Share2, Building, Users, Code, Award, Database, Zap } from "lucide-react";
-import Link from "next/link";
+import { Calendar, Clock, User, ExternalLink, Heart, MessageCircle, Share2, Building, Users, Code, Award, Database, Zap } from "lucide-react";
 import Image from "next/image";
+import Header from "../../../../components/layout/Header";
+import Footer from "../../../../components/layout/Footer";
 
 export default function QuantanicsBlog() {
   const [feedback, setFeedback] = useState('');
@@ -33,28 +34,10 @@ export default function QuantanicsBlog() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link 
-              href="/"
-              className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
-            >
-              <ArrowLeft size={20} />
-              <span className="font-medium">Back to Portfolio</span>
-            </Link>
-            <div className="flex items-center space-x-4">
-              <button className="p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200">
-                <Share2 size={18} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-8">
+      <main className="pt-24 lg:pt-32 max-w-4xl mx-auto px-6 py-8">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -415,6 +398,7 @@ export default function QuantanicsBlog() {
           </div>
         </motion.div>
       </main>
+      <Footer />
     </div>
   );
 }

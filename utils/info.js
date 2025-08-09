@@ -7,7 +7,7 @@ export const personalInfo = {
     email: "nitheshwaran003@gmail.com",
     phone: "+91 9976203099",
     location: "Dharmapuri, Tamil Nadu, India",
-    website: "https://nithesh.dev",
+    website: "https://nithi.xyz",
     github: "https://github.com/Nithesh005",
     linkedin: "https://www.linkedin.com/in/nitheshwaran/",
     // twitter: "https://twitter.com/nithesh_kumar",

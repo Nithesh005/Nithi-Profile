@@ -17,7 +17,7 @@ import WorkshopsSection from "../../components/sections/WorkshopsSection";
 import CertificationsSection from "../../components/sections/CertificationsSection";
 
 // Data
-import { personalInfo } from "../../utils/info";
+// import { personalInfo } from "../../utils/info";
 
 const HomePage = () => {
   useEffect(() => {

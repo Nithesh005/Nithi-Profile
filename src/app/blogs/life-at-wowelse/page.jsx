@@ -6,22 +6,11 @@ import { Calendar, Clock, User, ExternalLink, Heart, MessageCircle, Share2, Buil
 import Image from "next/image";
 import Header from "../../../../components/layout/Header";
 import Footer from "../../../../components/layout/Footer";
+import FeedbackSection from "../../../../components/sections/FeedbackSection";
 
 export default function WowelseBlog() {
-    const [feedback, setFeedback] = useState('');
     const [likes, setLikes] = useState(42);
     const [isLiked, setIsLiked] = useState(false);
-
-    const handleFeedbackChange = (e) => {
-        setFeedback(e.target.value);
-    };
-
-    const handleSubmitFeedback = () => {
-        if (feedback.trim()) {
-            alert('Thank you for your feedback!');
-            setFeedback('');
-        }
-    };
 
     const handleLike = () => {
         if (isLiked) {
@@ -35,7 +24,7 @@ export default function WowelseBlog() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
             <Header />
-
+            
             {/* Main Content */}
             <main className="pt-24 lg:pt-32 max-w-4xl mx-auto px-6 py-8">
                 {/* Hero Section */}
@@ -327,26 +316,7 @@ export default function WowelseBlog() {
                     </div>
 
                     {/* Feedback Section */}
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                            Share Your Thoughts
-                        </h3>
-                        <textarea
-                            value={feedback}
-                            onChange={handleFeedbackChange}
-                            className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
-                            rows="4"
-                            placeholder="What do you think about this article? Share your thoughts..."
-                        />
-                        <div className="flex justify-end mt-4">
-                            <button
-                                onClick={handleSubmitFeedback}
-                                className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200"
-                            >
-                                Submit Feedback
-                            </button>
-                        </div>
-                    </div>
+                    <FeedbackSection />
                 </motion.div>
             </main>
             <Footer />

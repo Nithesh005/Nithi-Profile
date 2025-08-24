@@ -179,13 +179,13 @@ const SkillsSection = () => {
                 <h4 className="font-semibold text-secondary-900 mb-3">Software Architecture</h4>
                 <div className="space-y-2">
                   <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">
-                    Microservices
+                    Monolithic Architecture
                   </span>
                   <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">
                     REST APIs
                   </span>
                   <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">
-                    GraphQL
+                    Microservices
                   </span>
                 </div>
               </div>
@@ -197,10 +197,10 @@ const SkillsSection = () => {
                 <h4 className="font-semibold text-secondary-900 mb-3">Development Practices</h4>
                 <div className="space-y-2">
                   <span className="inline-block px-3 py-1 bg-accent-50 text-accent-700 text-sm rounded-full">
-                    Agile/Scrum
+                    Agile
                   </span>
                   <span className="inline-block px-3 py-1 bg-accent-50 text-accent-700 text-sm rounded-full">
-                    TDD/BDD
+                    HLD/LLD
                   </span>
                   <span className="inline-block px-3 py-1 bg-accent-50 text-accent-700 text-sm rounded-full">
                     Code Review

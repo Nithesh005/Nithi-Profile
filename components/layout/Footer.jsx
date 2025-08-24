@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Heart, Code } from "lucide-react";
 import { personalInfo } from "../../utils/info";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -41,10 +41,10 @@ const Footer = () => {
       color: "hover:text-blue-600",
     },
     {
-      name: "Twitter",
-      href: personalInfo.twitter,
-      icon: Twitter,
-      color: "hover:text-blue-400",
+      name: "LeetCode",
+      href: personalInfo.leetcode,
+      icon: Code,
+      color: "hover:text-orange-500",
     },
     {
       name: "Email",

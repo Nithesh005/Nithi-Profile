@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Download, Mail, Github, Linkedin, Twitter, Code } from "lucide-react";
 import Image from "next/image";
 import { personalInfo } from "../../utils/info";
 
@@ -121,7 +121,7 @@ const HeroSection = () => {
               </motion.a>
               
               <motion.a
-                href={personalInfo.twitter}
+                href={personalInfo.leetcode}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -129,7 +129,7 @@ const HeroSection = () => {
                 className="p-3 rounded-full bg-secondary-100 hover:bg-primary-100 text-secondary-700 hover:text-primary-600 transition-colors duration-200"
                 aria-label="Twitter"
               >
-                <Twitter size={20} />
+                <Code size={20} />
               </motion.a>
               
               <motion.a

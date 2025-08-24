@@ -31,6 +31,17 @@ const Header = () => {
 
   const handleNavClick = (href) => {
     closeMenu();
+    
+    // Google Analytics event tracking for Experience navigation
+    if (href === "#experience") {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'navigation_click', {
+          navigation_item: 'experience',
+          method: 'header_navigation'
+        });
+      }
+    }
+    
     if (href.startsWith('#')) {
       if (pathname !== '/') {
         router.push(`/${href}`);

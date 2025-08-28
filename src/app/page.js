@@ -48,14 +48,14 @@ const HomePage = () => {
         {/* About Section */}
         <AboutSection />
 
+        {/* Workshops Section */}
+        <WorkshopsSection />
+        
         {/* Experience Section */}
         <ExperienceSection />
 
         {/* Skills Section */}
         <SkillsSection />
-
-        {/* Workshops Section */}
-        <WorkshopsSection />
 
         {/* Certifications Section */}
         <CertificationsSection />

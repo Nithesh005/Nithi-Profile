@@ -90,8 +90,8 @@ const Header = () => {
       dropdown: [
         { name: "Who I Am", href: "#about" },
         // { name: "Experience", href: "#experience" },
-        { name: "Skills", href: "#skills" },
         { name: "Volunteer", href: "#workshops" },
+        { name: "Skills", href: "#skills" },
         { name: "Certifications", href: "#certifications" },
       ]
     },
@@ -115,8 +115,9 @@ const Header = () => {
       name: "Explore",
       href: "#explore",
       dropdown: [
-        { name: "Achievements", href: "/achievements" },
         { name: "Rocket Science", href: "https://rocketscience.nithi.xyz", isExternal: true },
+        { name: "My Apps", href: "https://apps.nithi.xyz" , isExternal: true},
+        { name: "Achievements", href: "/achievements" },
         // { name: "Task Manager", href: "https://tasks.nithesh.dev", isExternal: true },
         // { name: "Weather App", href: "https://weather.nithesh.dev", isExternal: true },
         // { name: "Portfolio v1", href: "https://old.nithesh.dev", isExternal: true }

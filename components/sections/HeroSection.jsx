@@ -4,21 +4,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail, Github, Linkedin, Twitter, Code } from "lucide-react";
 import Image from "next/image";
 import { personalInfo } from "../../utils/info";
+import { useState } from "react";
+import ContactDialog from "../ContactDialog";
 
 const HeroSection = () => {
-  const handleScrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50"></div>
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
-      
+
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
@@ -70,16 +66,17 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={handleScrollToContact}
+                onClick={() => setContactDialogOpen(true)}
+                // onClick={handleScrollToContact}
                 className="btn-primary flex items-center justify-center space-x-2"
               >
                 <span>Let's Connect</span>
                 <ArrowRight size={18} />
               </motion.button>
-              
+
               <motion.a
                 href="/assets/T_Nitheshwaran_.pdf"
-                    download="T_Nitheshwaran_Resume.pdf"
+                download="T_Nitheshwaran_Resume.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-outline flex items-center justify-center space-x-2"
@@ -107,7 +104,7 @@ const HeroSection = () => {
               >
                 <Github size={20} />
               </motion.a>
-              
+
               <motion.a
                 href={personalInfo.linkedin}
                 target="_blank"
@@ -119,7 +116,7 @@ const HeroSection = () => {
               >
                 <Linkedin size={20} />
               </motion.a>
-              
+
               <motion.a
                 href={personalInfo.leetcode}
                 target="_blank"
@@ -131,7 +128,7 @@ const HeroSection = () => {
               >
                 <Code size={20} />
               </motion.a>
-              
+
               <motion.a
                 href={`mailto:${personalInfo.email}`}
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -154,7 +151,7 @@ const HeroSection = () => {
             <div className="relative">
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="relative"
@@ -167,7 +164,7 @@ const HeroSection = () => {
                   className="rounded-full shadow-2xl border-4 border-white"
                   priority
                 />
-                
+
                 {/* Floating elements */}
                 <motion.div
                   animate={{ y: [-10, 10, -10] }}
@@ -178,7 +175,7 @@ const HeroSection = () => {
                     <span className="text-white font-bold text-sm">N</span>
                   </div>
                 </motion.div>
-                
+
                 <motion.div
                   animate={{ y: [10, -10, 10] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -213,6 +210,10 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
+      <ContactDialog
+        isOpen={contactDialogOpen}
+        onClose={() => setContactDialogOpen(false)}
+      />
     </section>
   );
 };

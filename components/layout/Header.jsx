@@ -6,6 +6,7 @@ import { Menu, X, Download, Mail, ChevronDown } from "lucide-react";
 import { navigation, personalInfo } from "../../utils/info";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import ContactDialog from "../ContactDialog";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ const Header = () => {
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [blogsDropdownOpen, setBlogsDropdownOpen] = useState(false);
   const [exploreDropdownOpen, setExploreDropdownOpen] = useState(false);
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -116,7 +118,7 @@ const Header = () => {
       href: "#explore",
       dropdown: [
         { name: "Rocket Science", href: "https://rocketscience.nithi.xyz", isExternal: true },
-        { name: "My Apps", href: "https://apps.nithi.xyz" , isExternal: true},
+        // { name: "My Apps", href: "https://apps.nithi.xyz" , isExternal: true},
         { name: "Achievements", href: "/achievements" },
         // { name: "Task Manager", href: "https://tasks.nithesh.dev", isExternal: true },
         // { name: "Weather App", href: "https://weather.nithesh.dev", isExternal: true },
@@ -126,6 +128,7 @@ const Header = () => {
   ];
 
   return (
+    <>
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -240,15 +243,15 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <motion.a
-              href={`mailto:${personalInfo.email}`}
+            <motion.button
+              onClick={() => setContactDialogOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-outline flex items-center space-x-2"
             >
               <Mail size={18} />
               <span>Contact</span>
-            </motion.a>
+            </motion.button>
             <motion.a
               href="/assets/T_Nitheshwaran_.pdf"
               download="T_Nitheshwaran_Resume.pdf"
@@ -353,14 +356,14 @@ const Header = () => {
                   </div>
                 ))}
                 <div className="pt-4 space-y-3 border-t border-secondary-200">
-                  <motion.a
-                    href={`mailto:${personalInfo.email}`}
+                  <motion.button
+                    onClick={() => setContactDialogOpen(true)}
                     whileTap={{ scale: 0.95 }}
                     className="btn-outline w-full flex items-center justify-center space-x-2"
                   >
                     <Mail size={18} />
                     <span>Contact</span>
-                  </motion.a>
+                  </motion.button>
                   <motion.a
                     href="/assets/T_Nitheshwaran_.pdf"
                     download="T_Nitheshwaran_Resume.pdf"
@@ -377,6 +380,12 @@ const Header = () => {
         </AnimatePresence>
       </div>
     </motion.header>
+    
+    <ContactDialog 
+      isOpen={contactDialogOpen} 
+      onClose={() => setContactDialogOpen(false)} 
+    />
+    </>
   );
 };
 

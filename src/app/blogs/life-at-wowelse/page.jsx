@@ -56,7 +56,7 @@ export default function WowelseBlog() {
                                 </div>
                                 <div className="flex items-center space-x-1">
                                     <User size={16} />
-                                    <span>Nithesh Kumar</span>
+                                    <span>Nitheshwaran</span>
                                 </div>
                             </div>
                             <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">

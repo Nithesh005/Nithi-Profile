@@ -1,4 +1,4 @@
-# Nithesh Kumar - Professional Portfolio
+# Nitheshwaran - Professional Portfolio
 
 A modern, responsive portfolio website built with Next.js, showcasing my skills, experience, and projects as a Software Engineer.
 
@@ -237,10 +237,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Email**: nitheshwaran003@gmail.com
-- **LinkedIn**: [Nithesh Kumar](https://linkedin.com/in/nithesh-kumar)
-- **GitHub**: [nithesh-kumar](https://github.com/nithesh-kumar)
-- **Website**: [nithesh.dev](https://nithesh.dev)
+- **LinkedIn**: [Nitheshwaran](https://www.linkedin.com/in/nitheshwaran/)
+- **GitHub**: [nitheshwaran](https://github.com/Nithesh005)
+- **Website**: [nithi.xyz](https://nithi.xyz/)
 
 ---
 
-Made with ❤️ by Nithesh Kumar
+Made with ❤️ by Nitheshwaran

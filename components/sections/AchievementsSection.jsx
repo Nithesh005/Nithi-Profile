@@ -101,7 +101,7 @@ const AchievementsSection = () => {
                   <ExternalLink className="w-4 h-4" />
                   <span>View Duolingo Profile</span>
                 </a>
-                <button
+                {/* <button
                   className="btn-primary flex-1"
                   onClick={() => {
                     const achievements = document.getElementById("achievements");
@@ -109,7 +109,7 @@ const AchievementsSection = () => {
                   }}
                 >
                   Celebrate Consistency
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

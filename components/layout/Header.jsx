@@ -105,14 +105,6 @@ const Header = () => {
         { name: "Life at Wowelse", href: "/blogs/life-at-wowelse" }
       ]
     },
-    // {
-    //   name: "Blogs",
-    //   href: "#blogs",
-    //   dropdown: [
-    //     { name: "Python Libraries", href: "/blogs/life-at-quantanics" },
-    //     { name: "API Performance", href: "/blogs/life-at-wowelse" }
-    //   ]
-    // },
     {
       name: "Explore",
       href: "#explore",
@@ -120,9 +112,6 @@ const Header = () => {
         { name: "Rocket Science", href: "https://rocketscience.nithi.xyz", isExternal: true },
         // { name: "My Apps", href: "https://apps.nithi.xyz" , isExternal: true},
         { name: "Achievements", href: "/achievements" },
-        // { name: "Task Manager", href: "https://tasks.nithesh.dev", isExternal: true },
-        // { name: "Weather App", href: "https://weather.nithesh.dev", isExternal: true },
-        // { name: "Portfolio v1", href: "https://old.nithesh.dev", isExternal: true }
       ]
     }
   ];
@@ -139,7 +128,7 @@ const Header = () => {
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-14 lg:h-18">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -209,7 +198,7 @@ const Header = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-secondary-200 py-2 z-50"
+                          className="absolute top-full left-0 mt-1 w-44 bg-white rounded-md shadow-xl border border-secondary-200 py-1 z-50"
                         >
                           {item.dropdown.map((dropdownItem) => (
                             <motion.button
@@ -217,7 +206,7 @@ const Header = () => {
                               whileHover={{ backgroundColor: "#f8fafc" }}
                               whileTap={{ scale: 0.98 }}
                               onClick={() => handleDropdownClick(dropdownItem.href, dropdownItem.isExternal)}
-                              className="w-full text-left px-4 py-2 text-secondary-700 hover:text-primary-500 font-medium transition-colors duration-200"
+                              className="w-full text-left px-3 py-1.5 text-secondary-700 hover:text-primary-500 font-medium transition-colors duration-200"
                             >
                               {dropdownItem.name}
                             </motion.button>
@@ -242,12 +231,12 @@ const Header = () => {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
             <motion.button
               onClick={() => setContactDialogOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-outline flex items-center space-x-2"
+              className="btn-outline-compact flex items-center space-x-1.5"
             >
               <Mail size={18} />
               <span>Contact</span>
@@ -257,7 +246,7 @@ const Header = () => {
               download="T_Nitheshwaran_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary flex items-center space-x-2"
+              className="btn-primary-compact flex items-center space-x-1.5"
             >
               <Download size={18} />
               <span>Resume</span>
@@ -268,7 +257,7 @@ const Header = () => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={toggleMenu}
-            className="lg:hidden p-2 rounded-lg hover:bg-secondary-100 transition-colors duration-200"
+            className="lg:hidden p-1.5 rounded-md hover:bg-secondary-100 transition-colors duration-200"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -284,7 +273,7 @@ const Header = () => {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-4 border-t border-secondary-200">
+              <div className="py-3 space-y-2 border-t border-secondary-200">
                 {mainNavigation.map((item) => (
                   <div key={item.name}>
                     {item.dropdown ? (
@@ -306,7 +295,7 @@ const Header = () => {
                               setBlogsDropdownOpen(false);
                             }
                           }}
-                          className="block w-full text-left text-secondary-700 hover:text-primary-500 font-medium py-2 transition-colors duration-200 flex items-center justify-between"
+                          className="block w-full text-left text-secondary-700 hover:text-primary-500 font-medium py-1.5 transition-colors duration-200 flex items-center justify-between"
                         >
                           <span>{item.name}</span>
                           <motion.div
@@ -328,14 +317,14 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 space-y-2 border-l-2 border-secondary-200 ml-2"
+                              className="pl-3 space-y-1 border-l-2 border-secondary-200 ml-1.5"
                             >
                               {item.dropdown.map((dropdownItem) => (
                                 <motion.button
                                   key={dropdownItem.name}
                                   whileTap={{ scale: 0.95 }}
                                   onClick={() => handleDropdownClick(dropdownItem.href, dropdownItem.isExternal)}
-                                  className="block w-full text-left text-secondary-600 hover:text-primary-500 font-medium py-1 transition-colors duration-200"
+                                  className="block w-full text-left text-secondary-600 hover:text-primary-500 font-medium py-0.5 transition-colors duration-200"
                                 >
                                   {dropdownItem.name}
                                 </motion.button>
@@ -348,18 +337,18 @@ const Header = () => {
                       <motion.button
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleNavClick(item.href)}
-                        className="block w-full text-left text-secondary-700 hover:text-primary-500 font-medium py-2 transition-colors duration-200"
+                        className="block w-full text-left text-secondary-700 hover:text-primary-500 font-medium py-1.5 transition-colors duration-200"
                       >
                         {item.name}
                       </motion.button>
                     )}
                   </div>
                 ))}
-                <div className="pt-4 space-y-3 border-t border-secondary-200">
+                <div className="pt-3 space-y-2 border-t border-secondary-200">
                   <motion.button
                     onClick={() => setContactDialogOpen(true)}
                     whileTap={{ scale: 0.95 }}
-                    className="btn-outline w-full flex items-center justify-center space-x-2"
+                    className="btn-outline-compact w-full flex items-center justify-center space-x-1.5"
                   >
                     <Mail size={18} />
                     <span>Contact</span>
@@ -368,7 +357,7 @@ const Header = () => {
                     href="/assets/T_Nitheshwaran_.pdf"
                     download="T_Nitheshwaran_Resume.pdf"
                     whileTap={{ scale: 0.95 }}
-                    className="btn-primary w-full flex items-center justify-center space-x-2"
+                    className="btn-primary-compact w-full flex items-center justify-center space-x-1.5"
                   >
                     <Download size={18} />
                     <span>Resume</span>

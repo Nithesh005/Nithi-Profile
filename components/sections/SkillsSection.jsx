@@ -71,72 +71,72 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="section-padding bg-secondary-50">
-      <div className="container-custom">
+    <section id="skills" className="py-12 bg-secondary-50">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
         >
-          <h2 className="heading-secondary mb-4">
+          <h2 className="text-3xl font-bold mb-3">
             Technical <span className="gradient-text">Skills</span>
           </h2>
-          <p className="text-body max-w-3xl mx-auto">
+          <p className="text-secondary-600 max-w-2xl mx-auto">
             A comprehensive toolkit of technologies and frameworks I use to build modern, scalable applications.
           </p>
         </motion.div>
 
-        {/* Skills Grid - Minimal Design */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
+              transition={{ delay: categoryIndex * 0.05, duration: 0.5 }}
               className="group"
             >
               {/* Category Header */}
-              <div className="flex items-center space-x-3 mb-6">
-                <div className={`p-2 rounded-lg ${category.bgColor}`}>
-                  <category.icon className={`w-5 h-5 ${category.color}`} />
+              <div className="flex items-center space-x-2 mb-4">
+                <div className={`p-1.5 rounded-md ${category.bgColor}`}>
+                  <category.icon className={`w-4 h-4 ${category.color}`} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">{category.title}</h3>
+                <h3 className="text-base font-semibold text-gray-900">{category.title}</h3>
               </div>
 
               {/* Skills List */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: -5 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ 
-                      delay: categoryIndex * 0.1 + skillIndex * 0.05, 
-                      duration: 0.4 
+                      delay: categoryIndex * 0.05 + skillIndex * 0.02, 
+                      duration: 0.3 
                     }}
                     className="group/item"
                   >
-                    <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-2 h-2 rounded-full bg-gray-300 group-hover/item:bg-blue-500 transition-colors duration-200"></div>
+                    <div className="flex items-center justify-between p-2 rounded-md hover:bg-gray-50 transition-all duration-150">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover/item:bg-blue-500 transition-colors duration-150"></div>
                         <span className="text-sm font-medium text-gray-700">
                           {skill.name}
                         </span>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-1.5">
                         <span className="text-xs text-gray-500 font-medium">
                           {getSkillLevelText(skill.level)}
                         </span>
-                        <div className="w-16 h-1 bg-gray-200 rounded-full overflow-hidden">
+                        <div className="w-12 h-1 bg-gray-200 rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
                             animate={inView ? { width: `${skill.level}%` } : {}}
                             transition={{ 
-                              delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3, 
-                              duration: 0.8,
+                              delay: categoryIndex * 0.05 + skillIndex * 0.02 + 0.2, 
+                              duration: 0.6,
                               ease: "easeOut"
                             }}
                             className={`h-full rounded-full ${
@@ -158,69 +158,69 @@ const SkillsSection = () => {
 
         {/* Additional Expertise */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mb-16"
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mb-8"
         >
-          <div className="card p-8">
-            <div className="text-center mb-8">
-              <h3 className="heading-tertiary mb-4">Additional Expertise</h3>
-              <p className="text-body max-w-2xl mx-auto">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-semibold mb-3">Additional Expertise</h3>
+              <p className="text-secondary-600 max-w-xl mx-auto text-sm">
                 Beyond technical skills, I bring a comprehensive understanding of software development practices and methodologies.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Zap className="w-8 h-8 text-primary-600" />
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Zap className="w-6 h-6 text-primary-600" />
                 </div>
-                <h4 className="font-semibold text-secondary-900 mb-3">Software Architecture</h4>
-                <div className="space-y-2">
-                  <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">
+                <h4 className="font-semibold text-secondary-900 mb-2 text-sm">Software Architecture</h4>
+                <div className="space-y-1">
+                  <span className="inline-block px-2 py-0.5 bg-primary-50 text-primary-700 text-xs rounded-full">
                     Monolithic Architecture
                   </span>
-                  <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">
+                  <span className="inline-block px-2 py-0.5 bg-primary-50 text-primary-700 text-xs rounded-full">
                     REST APIs
                   </span>
-                  <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full">
+                  <span className="inline-block px-2 py-0.5 bg-primary-50 text-primary-700 text-xs rounded-full">
                     Microservices
                   </span>
                 </div>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Code className="w-8 h-8 text-accent-600" />
+                <div className="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Code className="w-6 h-6 text-accent-600" />
                 </div>
-                <h4 className="font-semibold text-secondary-900 mb-3">Development Practices</h4>
-                <div className="space-y-2">
-                  <span className="inline-block px-3 py-1 bg-accent-50 text-accent-700 text-sm rounded-full">
+                <h4 className="font-semibold text-secondary-900 mb-2 text-sm">Development Practices</h4>
+                <div className="space-y-1">
+                  <span className="inline-block px-2 py-0.5 bg-accent-50 text-accent-700 text-xs rounded-full">
                     Agile
                   </span>
-                  <span className="inline-block px-3 py-1 bg-accent-50 text-accent-700 text-sm rounded-full">
+                  <span className="inline-block px-2 py-0.5 bg-accent-50 text-accent-700 text-xs rounded-full">
                     HLD/LLD
                   </span>
-                  <span className="inline-block px-3 py-1 bg-accent-50 text-accent-700 text-sm rounded-full">
+                  <span className="inline-block px-2 py-0.5 bg-accent-50 text-accent-700 text-xs rounded-full">
                     Code Review
                   </span>
                 </div>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-secondary-600" />
+                <div className="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Users className="w-6 h-6 text-secondary-600" />
                 </div>
-                <h4 className="font-semibold text-secondary-900 mb-3">Soft Skills</h4>
-                <div className="space-y-2">
-                  <span className="inline-block px-3 py-1 bg-secondary-50 text-secondary-700 text-sm rounded-full">
+                <h4 className="font-semibold text-secondary-900 mb-2 text-sm">Soft Skills</h4>
+                <div className="space-y-1">
+                  <span className="inline-block px-2 py-0.5 bg-secondary-50 text-secondary-700 text-xs rounded-full">
                     Team Leadership
                   </span>
-                  <span className="inline-block px-3 py-1 bg-secondary-50 text-secondary-700 text-sm rounded-full">
+                  <span className="inline-block px-2 py-0.5 bg-secondary-50 text-secondary-700 text-xs rounded-full">
                     Mentoring
                   </span>
-                  <span className="inline-block px-3 py-1 bg-secondary-50 text-secondary-700 text-sm rounded-full">
+                  <span className="inline-block px-2 py-0.5 bg-secondary-50 text-secondary-700 text-xs rounded-full">
                     Problem Solving
                   </span>
                 </div>
@@ -231,28 +231,28 @@ const SkillsSection = () => {
 
         {/* Learning Journey */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
           className="text-center"
         >
-          <div className="card p-8 max-w-4xl mx-auto">
-            <h3 className="heading-tertiary mb-6">Continuous Learning Journey</h3>
-            <p className="text-body mb-8 max-w-3xl mx-auto">
+          <div className="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
+            <h3 className="text-xl font-semibold mb-4">Continuous Learning Journey</h3>
+            <p className="text-secondary-600 mb-6 max-w-2xl mx-auto text-sm">
               Technology evolves rapidly, and I'm committed to staying current with the latest trends and best practices. 
               I regularly participate in workshops, contribute to open-source projects, and mentor junior developers.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="inline-flex items-center px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="inline-flex items-center px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-medium">
                 🚀 Always Learning
               </span>
-              <span className="inline-flex items-center px-4 py-2 bg-accent-50 text-accent-700 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center px-3 py-1 bg-accent-50 text-accent-700 rounded-full text-xs font-medium">
                 📚 Knowledge Sharing
               </span>
-              <span className="inline-flex items-center px-4 py-2 bg-secondary-50 text-secondary-700 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center px-3 py-1 bg-secondary-50 text-secondary-700 rounded-full text-xs font-medium">
                 🤝 Community Building
               </span>
-              <span className="inline-flex items-center px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-medium">
                 💡 Innovation Focus
               </span>
             </div>

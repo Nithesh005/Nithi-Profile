@@ -115,9 +115,9 @@ const CertificationsSection = () => {
                     <ExternalLink size={16} />
                     <span>Verify</span>
                   </a>
-                  <button className="flex-1 btn-primary text-sm">
+                  {/* <button className="flex-1 btn-primary text-sm">
                     View Details
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </motion.div>

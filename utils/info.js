@@ -12,6 +12,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/nitheshwaran/",
     leetcode: "https://leetcode.com/u/nitheshwaran003/",
     about: "I'm a passionate Software Engineer with expertise in full-stack development, specializing in modern web technologies. I love solving complex problems and building scalable applications that make a difference.",
+    about: "Transforming ideas into digital masterpieces. With full-stack expertise, I craft seamless web experiences that break boundaries and build scalable, game-changing applications",
     summary: "Experienced software engineer with 2+ years in full-stack development, specializing in React, Node.js, and cloud technologies. Proven track record of delivering high-quality applications and mentoring junior developers.",
 };
 

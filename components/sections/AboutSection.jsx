@@ -15,7 +15,7 @@ const AboutSection = () => {
     {
       icon: Briefcase,
       // value: experiences.length,
-      value: 2.8,
+      value: 2.6,
       label: "Years Experience",
       color: "text-primary-500",
     },
@@ -53,7 +53,7 @@ const AboutSection = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-secondary-600 max-w-2xl mx-auto">
-            A passionate software engineer with a love for creating innovative solutions and mentoring the next generation of developers.
+            A software engineer who loves creating meaningful solutions and helping others grow.mentoring the next generation of developers.
           </p>
         </motion.div>
 
@@ -71,8 +71,7 @@ const AboutSection = () => {
                   {personalInfo.summary}
                 </p>
                 <p className="text-secondary-600">
-                  I specialize in building scalable web applications using modern technologies like React, Node.js, and cloud platforms. 
-                  My passion lies in creating user-centric solutions that solve real-world problems while maintaining clean, maintainable code.
+                  Specialized in scalable web apps using modern stacks, with a strong focus on usability and clean code.
                 </p>
               </div>
 

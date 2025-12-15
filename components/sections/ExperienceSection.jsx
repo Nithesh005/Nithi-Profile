@@ -179,8 +179,7 @@ const ExperienceSection = () => {
           <div className="bg-white rounded-lg shadow-md p-6 max-w-xl mx-auto">
             <h3 className="text-xl font-semibold mb-3">Interested in Working Together?</h3>
             <p className="text-secondary-600 mb-4 text-sm">
-              I'm always open to discussing new opportunities and exciting projects.
-              Let's connect and explore how we can work together to bring your ideas to life.
+              I welcome new challenges and opportunities. Let’s connect and build something amazing.
             </p>
             <motion.button
               whileHover={{ scale: 1.02 }}

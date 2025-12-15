@@ -110,8 +110,8 @@ const Header = () => {
       href: "#explore",
       dropdown: [
         { name: "Rocket Science", href: "https://rocketscience.nithi.xyz", isExternal: true },
-        // { name: "My Apps", href: "https://apps.nithi.xyz" , isExternal: true},
         { name: "Achievements", href: "/achievements" },
+        { name: "My Apps", href: "https://home.nithi.xyz" , isExternal: true},
       ]
     }
   ];

@@ -15,7 +15,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50"></div>
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-3 relative z-10">
         <div className="grid lg:grid-cols-2 gap-6 items-center">
           {/* Content */}
           <motion.div

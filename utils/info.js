@@ -12,8 +12,8 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/nitheshwaran/",
     leetcode: "https://leetcode.com/u/nitheshwaran003/",
     about: "I'm a passionate Software Engineer with expertise in full-stack development, specializing in modern web technologies. I love solving complex problems and building scalable applications that make a difference.",
-    about: "Transforming ideas into digital masterpieces. With full-stack expertise, I craft seamless web experiences that break boundaries and build scalable, game-changing applications",
-    summary: "Experienced software engineer with 2+ years in full-stack development, specializing in React, Node.js, and cloud technologies. Proven track record of delivering high-quality applications and mentoring junior developers.",
+    about: "I turn ideas into clean, powerful web experiences and scalable applications.",
+    summary: "Full-stack engineer with broad framework expertise and a deep understanding of data structures, focused on clean, scalable application design.",
 };
 
 // Professional Experience
@@ -28,11 +28,9 @@ export const experiences = [
         type: "Full-time",
         description: "Leading backend development initiatives for a creative branding studio, focusing on scalable web applications and API development.",
         achievements: [
-            "Developed and maintained RESTful APIs serving 10,000+ daily requests",
+            "Developed and maintained RESTful APIs serving 1000+ daily requests",
             "Implemented microservices architecture improving system performance by 40%",
-            "Mentored 3 junior developers and conducted code reviews",
             "Reduced API response time by 60% through optimization and caching strategies",
-            "Collaborated with design team to implement user-friendly interfaces"
         ],
         technologies: ["Python","MongoDB", "AWS", "REST APIs", "Redis", "Docker", "Git"],
         blogRoute: "/blogs/life-at-wowelse",
@@ -93,7 +91,7 @@ export const education = [
         location: "Chennai, India",
         duration: "2018 - 2019",
         score: "Percentage: 79%",
-        description: "Science stream with focus on Mathematics and Computer Science.",
+        description: "Pursuing Science with emphasis on Mathematics and Biology.",
         achievements: [
             "School topper in Computer Science",
             "Member of Science Club"

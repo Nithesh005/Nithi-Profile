@@ -207,7 +207,7 @@ export default function WowelseBlog() {
                                     <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
                                     <div>
                                         <strong className="text-gray-900">API Development:</strong>
-                                        <span className="text-gray-700"> Built and maintained RESTful APIs serving 10,000+ daily requests</span>
+                                        <span className="text-gray-700"> Built and maintained RESTful APIs serving 1000+ daily requests</span>
                                     </div>
                                 </li>
                                 <li className="flex items-start space-x-3">

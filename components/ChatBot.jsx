@@ -3,10 +3,13 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
+import axios from "axios";
+import { API_CONFIG, API_ENDPOINTS } from "../config/api";
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [chatHistory, setChatHistory] = useState([
     {
       id: 1,
@@ -23,8 +26,8 @@ const ChatBot = () => {
     }
   }, [chatHistory]);
 
-  const handleSend = () => {
-    if (message.trim()) {
+  const handleSend = async () => {
+    if (message.trim() && !isLoading) {
       const userMessage = {
         id: Date.now(),
         text: message,
@@ -33,17 +36,33 @@ const ChatBot = () => {
       };
       
       setChatHistory(prev => [...prev, userMessage]);
+      const currentMessage = message;
       setMessage("");
+      setIsLoading(true);
       
-      setTimeout(() => {
+      try {
+        const response = await axios.post(`${API_CONFIG.BASE_URL}${API_ENDPOINTS.CHAT}`, {
+          question: currentMessage
+        });
+        
         const botMessage = {
           id: Date.now() + 1,
-          text: "Thanks for your message! I'm still learning. You can contact Nithesh directly for detailed information.",
+          text: response.data.text || "Sorry, I couldn't process your request. Please try again.",
           sender: "bot",
           timestamp: new Date()
         };
         setChatHistory(prev => [...prev, botMessage]);
-      }, 1000);
+      } catch (error) {
+        const errorMessage = {
+          id: Date.now() + 1,
+          text: "Sorry, I'm having trouble connecting. Please try again later.",
+          sender: "bot",
+          timestamp: new Date()
+        };
+        setChatHistory(prev => [...prev, errorMessage]);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -95,6 +114,17 @@ const ChatBot = () => {
                   </div>
                 </div>
               ))}
+              {isLoading && (
+                <div className="flex justify-start mb-3">
+                  <div className="bg-white text-gray-700 shadow-sm p-3 rounded-lg">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Input */}
@@ -110,7 +140,8 @@ const ChatBot = () => {
                 />
                 <button
                   onClick={handleSend}
-                  className="px-3 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                  disabled={isLoading}
+                  className="px-3 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="w-4 h-4" />
                 </button>

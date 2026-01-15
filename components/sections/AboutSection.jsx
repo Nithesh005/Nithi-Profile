@@ -15,7 +15,7 @@ const AboutSection = () => {
     {
       icon: Briefcase,
       // value: experiences.length,
-      value: 2.6,
+      value: 2.11,
       label: "Years Experience",
       color: "text-primary-500",
     },

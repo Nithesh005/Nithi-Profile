@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Users, Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Users, Calendar, MapPin, ExternalLink, Eye } from "lucide-react";
 import { workshops } from "../../utils/info";
 import Image from "next/image";
 
@@ -48,6 +48,16 @@ const WorkshopsSection = () => {
                   className="object-cover transition-transform duration-300 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                
+                {/* Eye Icon */}
+                <button
+                  onClick={() => window.open(workshop.image, '_blank')}
+                  className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
+                  title="View full image"
+                >
+                  <Eye className="w-4 h-4 text-white" />
+                </button>
+                
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-xl font-bold text-white mb-1">
                     {workshop.title}
@@ -153,7 +163,7 @@ const WorkshopsSection = () => {
               </div>
             </div>
             <p className="text-body mt-6 max-w-2xl mx-auto">
-              Through these workshops, I've had the privilege of inspiring and training hundreds of students, 
+              Through these workshops, I've had the privilege of inspiring and training hundreds of students,
               helping them develop practical skills and fostering a passion for technology and innovation.
             </p>
           </div>

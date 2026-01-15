@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Mail, ChevronDown } from "lucide-react";
+import { Menu, X, Download, Mail, ChevronDown, Eye, ExternalLink } from "lucide-react";
 import { navigation, personalInfo } from "../../utils/info";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
@@ -84,14 +84,15 @@ const Header = () => {
   };
 
   const mainNavigation = [
-    // { name: "Home", href: "#home" },
-    { name: "Experience", href: "#experience" },
+    { name: "Meet Me", href: "/intro" },
+    { name: "My Brand", href: "https://home.nithi.xyz" , isExternal: true },
+    { name: "Achievements", href: "/achievements" },
     { 
       name: "About Me", 
       href: "#about",
       dropdown: [
         { name: "Who I Am", href: "#about" },
-        // { name: "Experience", href: "#experience" },
+        { name: "Experience", href: "#experience" },
         { name: "Volunteer", href: "#workshops" },
         { name: "Skills", href: "#skills" },
         { name: "Certifications", href: "#certifications" },
@@ -103,15 +104,6 @@ const Header = () => {
       dropdown: [
         { name: "Life at Quantanics", href: "/blogs/life-at-quantanics" },
         { name: "Life at Wowelse", href: "/blogs/life-at-wowelse" }
-      ]
-    },
-    {
-      name: "Explore",
-      href: "#explore",
-      dropdown: [
-        { name: "Rocket Science", href: "https://rocketscience.nithi.xyz", isExternal: true },
-        { name: "Achievements", href: "/achievements" },
-        { name: "My Apps", href: "https://home.nithi.xyz" , isExternal: true},
       ]
     }
   ];
@@ -215,6 +207,19 @@ const Header = () => {
                       )}
                     </AnimatePresence>
                   </div>
+                ) : item.isExternal ? (
+                  <motion.a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-secondary-700 hover:text-primary-500 font-medium transition-colors duration-200 relative group flex items-center space-x-1"
+                  >
+                    <span>{item.name}</span>
+                    <ExternalLink size={14} className="opacity-60" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
+                  </motion.a>
                 ) : (
                   <motion.button
                     whileHover={{ y: -2 }}
@@ -243,12 +248,13 @@ const Header = () => {
             </motion.button>
             <motion.a
               href="/assets/T_Nitheshwaran_.pdf"
-              download="T_Nitheshwaran_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary-compact flex items-center space-x-1.5"
             >
-              <Download size={18} />
+              <Eye size={18} />
               <span>Resume</span>
             </motion.a>
           </div>
@@ -333,6 +339,17 @@ const Header = () => {
                           )}
                         </AnimatePresence>
                       </div>
+                    ) : item.isExternal ? (
+                      <motion.a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileTap={{ scale: 0.95 }}
+                        className="block w-full text-left text-secondary-700 hover:text-primary-500 font-medium py-1.5 transition-colors duration-200 flex items-center space-x-1"
+                      >
+                        <span>{item.name}</span>
+                        <ExternalLink size={14} className="opacity-60" />
+                      </motion.a>
                     ) : (
                       <motion.button
                         whileTap={{ scale: 0.95 }}
@@ -355,11 +372,12 @@ const Header = () => {
                   </motion.button>
                   <motion.a
                     href="/assets/T_Nitheshwaran_.pdf"
-                    download="T_Nitheshwaran_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileTap={{ scale: 0.95 }}
                     className="btn-primary-compact w-full flex items-center justify-center space-x-1.5"
                   >
-                    <Download size={18} />
+                    <Eye size={18} />
                     <span>Resume</span>
                   </motion.a>
                 </div>

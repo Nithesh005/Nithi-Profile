@@ -9,7 +9,7 @@ import { ArrowRight } from "lucide-react";
 const IntroPage = () => {
   // Replace with your YouTube or Loom video URL
   // const videoUrl = "https://www.youtube.com/embed/G34_AfPojhM";
-  const videoUrl = "https://www.youtube.com/embed/fA3BzywEgCU?si=_TwwLIrFHA_EBw6v";
+  const videoUrl = "https://www.youtube.com/embed/5xPUeyuhc1c?si=bvEyOHDRB1Mu94RN";
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-primary-50 to-white">
